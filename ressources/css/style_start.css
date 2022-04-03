@@ -3,3 +3,123 @@
 * {
     box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  display: table-cell;
+ 
+  width: 1240px;
+}
+body header h1 {
+    background-color: #E78055;
+    color: white;
+    border-bottom: 15px solid #DC5224;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    top: 0px;
+    text-align: center;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+header li {
+  float: left;
+}
+
+header li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+li.active a {
+	background-color: white;
+	color: orange;
+}
+
+li a:hover:not(.active) {
+  background-color: gray;
+}
+
+article p a {
+	color: orange;
+}
+
+article header h2 {
+	border-bottom: thin solid #C2C2C2;
+}
+article header p {
+  text-align: right;
+  font-weight: 100;
+  color: gray;
+  font-style: italic;
+}
+main{
+  display: flex;
+  justify-content:space-around;
+  
+}
+aside{
+  width: 500px;
+  
+  margin-top: 10px;
+  height: 20vh;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+
+  
+}
+aside h3{
+  background-color: orange;
+  color: white;
+  margin-top: 0px;
+}
+aside li{
+  list-style-type: none; 
+
+}
+footer{
+  background-color: #333;
+  text-align: center;
+}
+@media (orientation: landscape) {
+  body {
+    flex-direction: row;
+  }
+}
+
+@media (orientation: portrait) {
+  body {
+    flex-direction: column;
+  }
+
+  
+}
+.hamburger {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger img {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
