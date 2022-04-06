@@ -18,13 +18,17 @@ body {
   width: 1240px;
 }
 body header h1 {
-    background-color: #E78055;
+    /*background-color: #E78055;*/
     color: white;
-    border-bottom: 15px solid #DC5224;
+    background: linear-gradient(0deg, rgba(220,82,36,1) 22%, rgba(231,128,85,1) 23%, rgba(239,172,144,1) 94%, rgba(255,255,255,1) 100%);
+    /*border-bottom: 15px solid #DC5224;*/
     margin-bottom: 0px;
     margin-top: 0px;
     top: 0px;
+    padding-top: 50px;
+    padding-bottom: 20px;
     text-align: center;
+	  font-family: "Roboto Slab", "sans-serif";
 }
 
 header ul {
@@ -32,7 +36,7 @@ header ul {
   margin: 0;
   padding: 0;
   padding-left: 20px;
-  overflow: hidden;
+  overflow: auto;
   background-color: #333;
 }
 
@@ -79,9 +83,9 @@ aside{
   width: 500px;
   
   margin-top: 10px;
-  height: 20vh;
+  
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
-
+  max-height: 40vh;
   
 }
 aside h3{
@@ -95,8 +99,38 @@ aside li{
 }
 footer{
   background-color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 1240px;
+  color: white;
   text-align: center;
 }
+.hamburger {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: calc(100vh - 50px);
+  width: 100%;
+}
+
+.open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mobile-menu li {
+  margin-bottom: 10px;
+}
+
 @media (orientation: landscape) {
   body {
     flex-direction: row;
@@ -107,19 +141,13 @@ footer{
   body {
     flex-direction: column;
   }
-
-  
 }
-.hamburger {
-  margin: auto 0;
-  display: none;
-  cursor: pointer;
-}
+@media only screen and (max-width: 657px) {
+  header nav {
+    display: none;
+  }
 
-.hamburger img {
-  width: 35px;
-  height: 3px;
-  background-color: white;
-  margin: 6px 0;
-  transition: 0.4s;
+  .hamburger {
+    display: block;
+  }
 }
