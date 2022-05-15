@@ -50,7 +50,7 @@ function StartMainMenu()
 	], function() {
 		// All done, go!
 		InputManager.reset();
-		MainMenu = new Menu("Lesson 5",
+		MainMenu = new Menu("",
 				[ "Play", "Settings", "Help", "Credits" ],
 				"",
 				70, 50, 400,
