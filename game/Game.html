@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Election Snake</title>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
+  <script src='js/JareUtils.js'></script>
+  <script src='js/FPSMeter.js'></script>
+  <script src='js/AudioManager.js'></script>
+  <script src='js/InputManager.js'></script>
+  <script src='js/GameLoopManager.js'></script>
+  <script src='js/Menu.js'></script>
+  <script src='js/Gamefield.js'></script>
+  <script src='js/Entities.js'></script>
+  <script src='js/Game.js'></script>
+  <script src='js/Lesson.js'></script>
+
+  <style>
+	#screen { display:block; margin:0 auto; background-color:#F0F; }
+	  
+    .fpsmeter {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .fpsmeter p {
+		margin-top: 0px;
+		margin-bottom: 0px;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+  <h3>Election Snake</h3>
+  <canvas id='screen' width='800' height='480'></canvas>
+  <div id="fpscontainer"></div>
+
+
+
+<hr />
+<footer>
+
+
+<script type="text/javascript">
+(function() {
+	var s = document.getElementsByTagName('script'); s = s[s.length-1]; 
+	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	po.src = 'https://apis.google.com/js/plusone.js';
+	s.parentNode.insertBefore(po, s);
+	po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	po.src = 'http://platform.twitter.com/widgets.js';
+	s.parentNode.insertBefore(po, s);
+	po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	po.src = 'http://connect.facebook.net/en_US/all.js#xfbml=1';
+	s.parentNode.insertBefore(po, s);
+})();
+</script>
+</div>
+</footer>
+</body>
+</html>
