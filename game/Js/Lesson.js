@@ -61,7 +61,8 @@ function StartMainMenu()
 }
 
 $(document).ready(function () {
-	canvas = document.getElementById("screen");
+	// Get the canvas and context
+	canvas = document.getElementById("viewport");
 	ctx = canvas.getContext("2d");
 	fps = new FPSMeter("fpsmeter", document.getElementById("fpscontainer"));
 	InputManager.connect(document, canvas);

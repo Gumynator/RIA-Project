@@ -412,10 +412,20 @@ function drawLevel() {
             var tiley = j*level.tileheight;
             
             // Draw tiles based on their type
+            
             if (tile == 0) {
                 // Empty space
-                context.fillStyle = "#f7e697";
-                context.fillRect(tilex, tiley, level.tilewidth, level.tileheight);
+                if(i<level.columns/3){
+                    context.fillStyle = "#0000FF";
+                    context.fillRect(tilex, tiley, level.tilewidth, level.tileheight);
+                }else if(i>level.columns/3&&i<level.columns/(1.66)){
+                    context.fillStyle = "#FFFFFF";
+                    context.fillRect(tilex, tiley, level.tilewidth, level.tileheight);
+                }else{
+                    context.fillStyle = "#FF0000";
+                    context.fillRect(tilex, tiley, level.tilewidth, level.tileheight);
+                }
+                
             } else if (tile == 1) {
                 // Wall
                 context.fillStyle = "#bcae76";
