@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Example</title>
-<script type="text/javascript" src="snake.js"></script>
+    <meta charset="UTF-8">
+    <title>ElectSnake</title>
+    <script type="text/javascript" src="snake.js"></script>
+    <script type="text/javascript" src="menu.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<canvas id="viewport" width="640" height="480"></canvas>
+    <canvas style="display: none;" id="viewport" width="640" height="480"></canvas>
+    <div id="menucontainer">
+        <audio id="lamarseillaise" controls>
+            <source src="la-marseillaise.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        <div id="mainmenu">
+            <h3>Election Game</h1>
+            <div id="playbutton">Jouer</div>
+            <div id="settingsbutton">Réglages</div>
+            <div id="recordsbutton">Records</div>
+        </div>
+        <div id="menusettings" style="display: none;">
+            <h1>Réglages</h1>
+            <input type="range" id="volume-control">
+            <div id="backbutton1">Retour</div>
+        </div>
+        <div id="menurecords" style="display: none;">
+            <h1 id="recordstitle">Records</h1>
+            <div id="recordslist"></div>
+            <div id="backbutton2">Retour</div>
+        </div>
+        <div id="menupseudo" style="display: none;">
+            <h3>Votre nom d'électeur</h3>
+            <input type="text" id="pseudotxt">
+            <button id="validerpseudobtn">Valider</button>
+        </div>
+        <div id="menuselection" style="display: none;">
+            <div id="snakeselection">
+                <img src="./snake.svg" height="100px" draggable="true">
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -1,0 +1,113 @@
+#menucontainer {
+    height: 480px;
+    width: 640px;
+    border: 2px solid red;
+    font-size: 50px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainmenu {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    cursor: pointer;
+    background-image: url(./mainBackground.jpg);
+    width: 100%;
+    height: 100%;
+}
+
+#mainmenu div:hover {
+    color: red;
+}
+
+#mainmenu div {
+    border: thick double blue;
+    background-color: lightcoral;
+}
+
+#menusettings, #menurecords {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    cursor: pointer;
+    background-image: url(./mainBackground.jpg);
+    width: 100%;
+    height: 100%;
+}
+
+
+
+#menupseudo {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./mainBackground.jpg);
+    width: 100%;
+    height: 100%;
+}
+
+#menuselection {
+    flex-direction: column-reverse;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(./SnakeSelector.png);
+}
+
+#snakeselection {
+    text-align: center;
+}
+
+#pseudotxt{
+    padding:10px;
+    border-radius:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+#validerpseudobtn{
+        background-color:lightcoral; 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+      
+}
+
+h3,h1{
+    border: 2mm ridge rgba(211, 220, 50, .6);
+    background-color: lightcoral;
+    
+}
+
+#recordstitle{
+    margin-bottom: 3px;
+    margin-top: 10px;
+}
+#recordslist{
+    border: 2mm ridge rgba(211, 220, 50, .6);
+    background-color: white;
+}
+
+#backbutton1, #backbutton2{
+    background-color:lightcoral; 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+}

@@ -1,6 +1,6 @@
 
 // The function gets called when the window is fully loaded
-window.onload = function() {
+window.startGame = function() {
 // Get the canvas and context
 var canvas = document.getElementById("viewport"); 
 var context = canvas.getContext("2d");
@@ -181,7 +181,12 @@ var gameoverdelay = 0.5;    // Waiting time after game over
 // Initialize the game
 function init() {
     // Load images
-    images = loadImages(["snake-zemmour.png"]);
+    if(window.team == "Z"){
+        images = loadImages(["snake-zemmour.png"]);
+    }else{
+        images = loadImages(["snake-melenchon.png"]);
+    }
+    
     tileimage = images[0];
 
     // Add mouse events
@@ -266,19 +271,7 @@ function main(tframe) {
         // Clear the canvas
         context.clearRect(0, 0, canvas.width, canvas.height);
         
-        // Draw a progress bar
-        var loadpercentage = loadcount/loadtotal;
-        context.strokeStyle = "#ff8080";
-        context.lineWidth=3;
-        context.strokeRect(18.5, 0.5 + canvas.height - 51, canvas.width-37, 32);
-        context.fillStyle = "#ff8080";
-        context.fillRect(18.5, 0.5 + canvas.height - 51, loadpercentage*(canvas.width-37), 32);
         
-        // Draw the progress text
-        var loadtext = "Loaded " + loadcount + "/" + loadtotal + " images";
-        context.fillStyle = "#000000";
-        context.font = "16px Verdana";
-        context.fillText(loadtext, 18, 0.5 + canvas.height - 63);
         
         if (preloaded) {
             initialized = true;
@@ -294,10 +287,7 @@ function main(tframe) {
 function update(tframe) {
     var dt = (tframe - lastframe) / 1000;
     lastframe = tframe;
-    
-    // Update the fps counter
-    updateFps(dt);
-    
+
     if (!gameover) {
         updateGame(dt);
     } else {
@@ -352,6 +342,8 @@ function updateGame(dt) {
                     
                     // Add a point to the score
                     score++;
+
+                    
                 }
                 
 
@@ -363,24 +355,23 @@ function updateGame(dt) {
         
         if (gameover) {
             gameovertime = 0;
+            let pseudo = window.localStorage.getItem("pseudo")
+            let scores = window.localStorage.getItem("scores")
+
+            if(scores == null){
+                scores = {}
+            }else{
+                scores = JSON.parse(scores)
+            }
+            if(scores[pseudo] == null) scores[pseudo] = 0
+            if(scores[pseudo] < score) scores[pseudo] = score
+            
+            window.localStorage.setItem("scores", JSON.stringify(scores))
         }
     }
 }
 
-function updateFps(dt) {
-    if (fpstime > 0.25) {
-        // Calculate fps
-        fps = Math.round(framecount / fpstime);
-        
-        // Reset time and framecount
-        fpstime = 0;
-        framecount = 0;
-    }
-    
-    // Increase time and framecount
-    fpstime += dt;
-    framecount++;
-}
+
 
 // Render the game
 function render() {
@@ -398,7 +389,7 @@ function render() {
         
         context.fillStyle = "#ffffff";
         context.font = "24px Verdana";
-        drawCenterText("Press any key to start!", 0, canvas.height/2, canvas.width);
+        drawCenterText("Appuyez sur une touche pour commencer! Score: "+score, 0, canvas.height/2, canvas.width);
     }
 }
 
@@ -538,8 +529,7 @@ function randRange(low, high) {
 
 // Mouse event handlers
 function onMouseDown(e) {
-    // Get the mouse position
-    var pos = getMousePos(canvas, e);
+    
     
     if (gameover) {
         // Start a new game
@@ -577,21 +567,18 @@ function onKeyDown(e) {
             }
         }
         
-        // Grow for demonstration purposes
+        // Cheat code
         if (e.keyCode == 32) {
             snake.grow();
+            score++;
+        }
+
+        if(e.keyCode == 27){
+            location.reload()
         }
     }
 }
 
-// Get the mouse position
-function getMousePos(canvas, e) {
-    var rect = canvas.getBoundingClientRect();
-    return {
-        x: Math.round((e.clientX - rect.left)/(rect.right - rect.left)*canvas.width),
-        y: Math.round((e.clientY - rect.top)/(rect.bottom - rect.top)*canvas.height)
-    };
-}
 
 // Call init to start the game
 init();
