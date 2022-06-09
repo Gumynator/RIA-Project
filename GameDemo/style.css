@@ -111,3 +111,8 @@ h3,h1{
         margin: 4px 2px;
         cursor: pointer;
 }
+
+#locationinfo{
+    border: 1mm ridge rgba(211, 220, 50, .6);
+    background-color: white;
+}

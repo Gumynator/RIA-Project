@@ -6,13 +6,14 @@
     <title>ElectSnake</title>
     <script type="text/javascript" src="snake.js"></script>
     <script type="text/javascript" src="menu.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <canvas style="display: none;" id="viewport" width="640" height="480"></canvas>
     <div id="menucontainer">
-        <audio id="lamarseillaise" controls>
+        <audio id="lamarseillaise">
             <source src="la-marseillaise.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
@@ -21,10 +22,12 @@
             <div id="playbutton">Jouer</div>
             <div id="settingsbutton">Réglages</div>
             <div id="recordsbutton">Records</div>
+            <div id="audioplay">Musique</div>
         </div>
         <div id="menusettings" style="display: none;">
             <h1>Réglages</h1>
             <input type="range" id="volume-control">
+            <div id="locationinfo"></div>
             <div id="backbutton1">Retour</div>
         </div>
         <div id="menurecords" style="display: none;">

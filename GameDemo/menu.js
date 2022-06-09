@@ -14,6 +14,8 @@ function initmenu() {
     const menusettings = document.getElementById("menusettings")
     const menupseudo = document.getElementById("menupseudo")
     const lamarseillaise=document.getElementById("lamarseillaise")
+    const audioplay=document.getElementById("audioplay")
+    const locationinfo=document.getElementById("locationinfo")
 
     playbutton.addEventListener("click", event => {
         mainmenu.style.display = "none"
@@ -24,6 +26,37 @@ function initmenu() {
     settingsbutton.addEventListener("click", event => {
         mainmenu.style.display = "none"
         menusettings.style.display = "flex"
+
+        
+            let endpoint = 'https://api.geoapify.com/v1/ipinfo'
+            let apiKey = '5c32115a4e154b51b0e5793a2e2207f6'
+          
+            $( "#locationinfo" ).each(function( index, element ) {
+          
+              $.ajax({
+                  url: endpoint + "?&apiKey=" + apiKey + " &q=" + $( this ).text(),
+                  contentType: "application/json",
+                  dataType: 'json',
+                  success: function(result){
+                      console.log("yolo"+result);
+                  }
+              })
+            });
+         
+
+
+
+        var requestOptions = {
+            method: 'GET',
+          };
+          
+          fetch("https://api.geoapify.com/v1/ipinfo?&apiKey=5c32115a4e154b51b0e5793a2e2207f6", requestOptions)
+            .then(response => response.json())
+            .then(result =>  locationinfo.innerHTML = "Canton: "+(result.state.name))
+            .catch(error => console.log('error', error));
+
+            
+            
         
     })
 
@@ -90,14 +123,21 @@ function initmenu() {
         window.startGame()
     })
 
-    var reference = (function audiomanager(){
 
-        //function body
-        //audio manager
+    audioplay.addEventListener("click", event => {
+        
         lamarseillaise.play();
         //lamarseillaise.autoplay;
         lamarseillaise.loop = true;
         lamarseillaise.load(); 
+        
+    })
+
+    var reference = (function audiomanager(){
+
+        //function body
+        //audio manager
+        
         return audiomanager; //return the function itself to reference
     
     }());
